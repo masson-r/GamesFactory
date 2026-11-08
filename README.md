@@ -1,4 +1,4 @@
-﻿# Game Factory
+﻿# GamesFactory
 
 Site statique bilingue FR/EN (HTML/CSS/JS), aucun build. Ouvre `index.html` dans un navigateur.
 
