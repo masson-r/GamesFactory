@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<style>
+	body {
+		display: flex;
+		justify-content: center;
+		padding: 40px;
+	}
+
+	#zone {
+		position: absolute;
+		width: 290px;
+		height: 290px;
+		top: 0px;
+		left: 0px;
+		transition: top 0.3s ease, left 0.3s ease;
+	}
+
+	.bouton {
+		position: relative;
+		margin-top: 320px;
+		padding: 8px 16px;
+		font-size: 15px;
+		cursor: pointer;
+	}
+
+	.emplacement {
+		position: absolute;
+		width: 130px;
+		height: 130px;
+		border: 2px dashed #aaa;
+		box-sizing: border-box;
+		transition: border-color 0.15s;
+	}
+
+	.draggable {
+		position: absolute;
+		width: 130px;
+		height: 130px;
+		cursor: grab;
+	}
+	#element1 {
+		top: 10px;
+		left: 570px;
+	}
+	#element2 {
+		top: 150px;
+		left: 570px;
+	}
+	#element3 {
+		top: 10px;
+		left: 710px;
+	}
+	#plateau {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+	}
+	#texte {
+		position: relative;
+		top: 10px;
+		left: 500px;
+	}
+	#debug {
+		position: relative;
+		top: 500px;
+		left: 500px;
+	}
+
+	#gauche img,
+	#droite img {
+		width: 24px;
+		height: 24px;
+	}
+
+	.rond {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: red;
+	display: inline-block;
+	}
+</style>
+<body>
+	<div id = "plateau">
+		<div id="bases"></div>
+		<div id="pions"></div>
+		<div style="display: flex; flex-direction: column; gap: 10px;">
+			<div style="display: flex; gap: 10px;">
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-1-1-1-1" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-1-1-1-2" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-1-1-1-3" style="width: 40px; height: 40px; background-color: black;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-1-1-2-1" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-1-1-2-2" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-1-1-2-3" style="width: 40px; height: 40px; background-color: black;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-1-1-3-1" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-1-1-3-2" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-1-1-3-3" style="width: 40px; height: 40px; background-color: black;"></div>
+					</div>
+				</div>
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-1-2-1-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-1-2-1-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-1-2-1-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-1-2-2-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-1-2-2-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-1-2-2-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-1-2-3-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-1-2-3-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-1-2-3-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+				</div>
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-1-3-1-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-1-3-1-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-1-3-1-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-1-3-2-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-1-3-2-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-1-3-2-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-1-3-3-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-1-3-3-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-1-3-3-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+				</div>
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-1-4-1-1" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-1-4-1-2" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-1-4-1-3" style="width: 40px; height: 40px; background-color: black;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-1-4-2-1" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-1-4-2-2" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-1-4-2-3" style="width: 40px; height: 40px; background-color: black;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-1-4-3-1" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-1-4-3-2" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-1-4-3-3" style="width: 40px; height: 40px; background-color: black;"></div>
+					</div>
+				</div>
+			</div>
+			<div style="display: flex; gap: 10px;">
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-2-1-1-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-1-1-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-1-1-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-2-1-2-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-1-2-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-1-2-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-2-1-3-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-1-3-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-1-3-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+				</div>
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-2-2-1-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-2-1-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-2-1-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-2-2-2-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-2-2-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-2-2-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-2-2-3-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-2-3-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-2-3-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+				</div>
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-2-3-1-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-3-1-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-3-1-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-2-3-2-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-3-2-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-3-2-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-2-3-3-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-3-3-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-3-3-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+				</div>
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-2-4-1-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-4-1-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-4-1-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-2-4-2-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-4-2-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-4-2-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-2-4-3-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-4-3-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-2-4-3-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+				</div>
+			</div>
+			<div style="display: flex; gap: 10px;">
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-3-1-1-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-1-1-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-1-1-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-3-1-2-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-1-2-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-1-2-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-3-1-3-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-1-3-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-1-3-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+				</div>
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-3-2-1-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-2-1-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-2-1-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-3-2-2-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-2-2-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-2-2-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-3-2-3-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-2-3-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-2-3-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+				</div>
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-3-3-1-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-3-1-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-3-1-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-3-3-2-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-3-2-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-3-2-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-3-3-3-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-3-3-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-3-3-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+				</div>
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-3-4-1-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-4-1-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-4-1-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-3-4-2-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-4-2-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-4-2-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-3-4-3-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-4-3-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-3-4-3-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+				</div>
+			</div>
+			<div style="display: flex; gap: 10px;">
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-4-1-1-1" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-4-1-1-2" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-4-1-1-3" style="width: 40px; height: 40px; background-color: black;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-4-1-2-1" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-4-1-2-2" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-4-1-2-3" style="width: 40px; height: 40px; background-color: black;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-4-1-3-1" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-4-1-3-2" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-4-1-3-3" style="width: 40px; height: 40px; background-color: black;"></div>
+					</div>
+				</div>
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-4-2-1-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-4-2-1-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-4-2-1-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-4-2-2-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-4-2-2-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-4-2-2-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-4-2-3-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-4-2-3-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-4-2-3-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+				</div>
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-4-3-1-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-4-3-1-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-4-3-1-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-4-3-2-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-4-3-2-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-4-3-2-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-4-3-3-1" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-4-3-3-2" style="width: 40px; height: 40px; background-color: transparent;"></div>
+						<div id="cell-4-3-3-3" style="width: 40px; height: 40px; background-color: transparent;"></div>
+					</div>
+				</div>
+				<div style="display: flex; flex-direction: column; gap: 5px;">
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-4-4-1-1" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-4-4-1-2" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-4-4-1-3" style="width: 40px; height: 40px; background-color: black;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-4-4-2-1" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-4-4-2-2" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-4-4-2-3" style="width: 40px; height: 40px; background-color: black;"></div>
+					</div>
+					<div style="display: flex; gap: 5px;">
+						<div id="cell-4-4-3-1" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-4-4-3-2" style="width: 40px; height: 40px; background-color: black;"></div>
+						<div id="cell-4-4-3-3" style="width: 40px; height: 40px; background-color: black;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="zone">
+		<!-- emplacements possibles -->
+		<div class="emplacement" style="top: 10px; left: 150px;"></div>
+		<div class="emplacement" style="top: 150px; left: 10px;"></div>
+		<div class="emplacement" style="top: 150px; left: 150px;"></div>
+
+		<div id="element1" class="draggable">
+			<div style="display: flex; flex-direction: column; gap: 5px;">
+				<div style="display: flex; gap: 5px;">
+					<div style="width: 40px; height: 40px; background-color: red;"></div>
+					<div style="width: 40px; height: 40px; background-color: red;"></div>
+					<div style="width: 40px; height: 40px; background-color: red;"></div>
+				</div>
+				<div style="display: flex; gap: 5px;">
+					<div style="width: 40px; height: 40px; background-color: red;"></div>
+					<div style="width: 40px; height: 40px; background-color: transparent;"></div>
+					<div style="width: 40px; height: 40px; background-color: red;"></div>
+				</div>
+				<div style="display: flex; gap: 5px;">
+					<div style="width: 40px; height: 40px; background-color: red;"></div>
+					<div style="width: 40px; height: 40px; background-color: red;"></div>
+					<div style="width: 40px; height: 40px; background-color: red;"></div>
+				</div>
+			</div>
+		</div>
+		<div id="element2" class="draggable">
+			<div style="display: flex; flex-direction: column; gap: 5px;">
+				<div style="display: flex; gap: 5px;">
+					<div style="width: 40px; height: 40px; background-color: blue;"></div>
+					<div style="width: 40px; height: 40px; background-color: blue;"></div>
+					<div style="width: 40px; height: 40px; background-color: blue;"></div>
+				</div>
+				<div style="display: flex; gap: 5px;">
+					<div style="width: 40px; height: 40px; background-color: blue;"></div>
+					<div style="width: 40px; height: 40px; background-color: blue;"></div>
+					<div style="width: 40px; height: 40px; background-color: blue;"></div>
+				</div>
+				<div style="display: flex; gap: 5px;">
+					<div style="width: 40px; height: 40px; background-color: blue;"></div>
+					<div style="width: 40px; height: 40px; background-color: transparent;"></div>
+					<div style="width: 40px; height: 40px; background-color: blue;"></div>
+				</div>
+			</div>
+		</div>
+		<div id="element3" class="draggable">
+			<div style="display: flex; flex-direction: column; gap: 5px;">
+				<div style="display: flex; gap: 5px;">
+					<div style="width: 40px; height: 40px; background-color: transparent;"></div>
+					<div style="width: 40px; height: 40px; background-color: green;"></div>
+					<div style="width: 40px; height: 40px; background-color: green;"></div>
+				</div>
+				<div style="display: flex; gap: 5px;">
+					<div style="width: 40px; height: 40px; background-color: green;"></div>
+					<div style="width: 40px; height: 40px; background-color: green;"></div>
+					<div style="width: 40px; height: 40px; background-color: green;"></div>
+				</div>
+				<div style="display: flex; gap: 5px;">
+					<div style="width: 40px; height: 40px; background-color: green;"></div>
+					<div style="width: 40px; height: 40px; background-color: green;"></div>
+					<div style="width: 40px; height: 40px; background-color: green;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<p id="texte"></p>
+	<p id="debug"></p>
+	<button id="validation" class="bouton" style="display: none;">Valider</button>
+	<button id="gauche" class="bouton" style="display: none;"><img src="fleche_gauche.png"></button>
+	<button id="select" class="bouton" style="display: none;"><p id = "texte_select"></p></button>
+	<button id="droite" class="bouton" style="display: none;"><img src="fleche_droite.png"></button>
+	<div id="zone-selection"></div>
+
+	<script src="cartes.js"></script>
+	<script src="terreur_nocturne\terreur_nocturne.js"></script>
+	<script src="goblin\goblin.js"></script>
+	<script src="film_horreur\film_horreur.js"></script>
+	<script src="steampunk\steampunk.js"></script>
+	<script src="magie\magie.js"></script>
+	<script src="Mr_ours\Mr_ours.js"></script>
+	<script src="ninja\ninja.js"></script>
+	<script src="rebelle\rebelle.js"></script>
+	<script src="maison\maison.js"></script>
+	<script src="gems\gems.js"></script>
+	<script src="royaute\royaute.js"></script>
+	<script src="chose\chose.js"></script>
+	<script src="biome\biome.js"></script>
+	<script src="moteur.js"></script>
+	<script src="combat.js"></script>
+	<script src="noir.js"></script>
+	<script src="sorts.js"></script>
+	<script src="etats.js"></script>
+	<script src="salles.js"></script>
+	<script src="blinks.js"></script>
+	<script src="meute.js"></script>
+	<script src="terrain.js"></script>
+	<script src="robot/robot.js"></script>
+	<script src="action.js"></script>
+	<script src="miseenplace.js"></script>
+	<script src="base.js"></script>
+	<script src="tamer.js"></script>
+</body>
+</html>

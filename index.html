@@ -44,65 +44,61 @@
       <div class="games">
 
         <!-- ============ CARTE JEU (copie ce bloc pour ajouter un jeu) ============ -->
-        <a class="card panel" href="games/pixel-quest.html">
+        <a class="card panel" href="games/hop-and-lock.html">
           <svg class="cover" viewBox="0 0 160 100" shape-rendering="crispEdges" aria-hidden="true">
-            <rect width="160" height="100" fill="#1b1b4a"/>
-            <rect y="70" width="160" height="30" fill="#39ff6a"/>
-            <rect y="78" width="160" height="22" fill="#14732e"/>
-            <rect x="110" y="20" width="16" height="16" fill="#ffd93b"/>
-            <rect x="60" y="54" width="16" height="16" fill="#ff2e93"/>
-            <rect x="64" y="58" width="4" height="4" fill="#fff"/>
-            <rect x="70" y="58" width="4" height="4" fill="#fff"/>
-          </svg>
+        <defs>
+          <pattern id="hl-b" width="20" height="20" patternUnits="userSpaceOnUse" x="40" y="10">
+            <rect width="10" height="10" fill="#f2e8cf"/><rect x="10" y="10" width="10" height="10" fill="#f2e8cf"/>
+            <rect x="10" width="10" height="10" fill="#d9c9a0"/><rect y="10" width="10" height="10" fill="#d9c9a0"/>
+          </pattern>
+        </defs>
+        <rect width="160" height="100" fill="#1b1b2f"/>
+        <rect x="40" y="10" width="80" height="80" fill="url(#hl-b)"/>
+        <rect x="40" y="70" width="10" height="10" fill="#19f0ff"/><rect x="50" y="80" width="10" height="10" fill="#19f0ff"/>
+        <rect x="60" y="70" width="10" height="10" fill="#19f0ff"/><rect x="50" y="60" width="10" height="10" fill="#19f0ff"/>
+        <rect x="90" y="20" width="10" height="10" fill="#ff2e93"/><rect x="100" y="10" width="10" height="10" fill="#ff2e93"/>
+        <rect x="110" y="20" width="10" height="10" fill="#ff2e93"/><rect x="100" y="30" width="10" height="10" fill="#ff2e93"/>
+        <rect x="70" y="40" width="10" height="10" fill="#8a8ab8"/><rect x="80" y="50" width="10" height="10" fill="#8a8ab8"/>
+        <rect x="52" y="52" width="6" height="6" fill="#0a0a14"/><rect x="92" y="62" width="6" height="6" fill="#ffd93b"/>
+        <rect x="102" y="42" width="6" height="6" fill="#0a0a14"/>
+      </svg>
           <div class="body">
-            <h3>PIXEL QUEST</h3>
-            <p class="fr">Un platformer old school où chaque mort te rend plus fort.</p>
-            <p class="en">An old-school platformer where every death makes you stronger.</p>
+            <h3>HOP &amp; LOCK</h3>
+            <p class="fr">Saute, bloque, capture : un jeu de stratégie 8×8 contre un bot, sur 25 niveaux.</p>
+            <p class="en">Hop. Lock. Capture. An 8×8 strategy game against a bot, over 25 levels.</p>
             <div class="meta">
-              <span class="tags">Platformer · 2D</span>
+              <span class="tags">Strategy · Puzzle</span>
               <span class="badge released"><span class="fr">Dispo</span><span class="en">Out now</span></span>
             </div>
           </div>
         </a>
         <!-- ============ FIN CARTE JEU ============ -->
 
-        <a class="card panel" href="games/neon-racer.html">
+        <a class="card panel" href="games/tamer.html">
           <svg class="cover" viewBox="0 0 160 100" shape-rendering="crispEdges" aria-hidden="true">
-            <rect width="160" height="100" fill="#14052e"/>
-            <rect y="50" width="160" height="50" fill="#2a0b5c"/>
-            <polygon points="70,50 90,50 130,100 30,100" fill="#0a0a14"/>
-            <rect x="78" y="58" width="4" height="8" fill="#19f0ff"/>
-            <rect x="78" y="74" width="4" height="12" fill="#19f0ff"/>
-            <rect x="0" y="48" width="160" height="4" fill="#ff2e93"/>
-          </svg>
+        <defs>
+          <pattern id="tm-g" width="12" height="12" patternUnits="userSpaceOnUse" x="42" y="12"><rect width="10" height="10" fill="#2f8f4e"/></pattern>
+          <pattern id="tm-o" width="12" height="12" patternUnits="userSpaceOnUse" x="82" y="12"><rect width="10" height="10" fill="#d9822b"/></pattern>
+          <pattern id="tm-b" width="12" height="12" patternUnits="userSpaceOnUse" x="42" y="52"><rect width="10" height="10" fill="#3a7bd5"/></pattern>
+          <pattern id="tm-p" width="12" height="12" patternUnits="userSpaceOnUse" x="82" y="52"><rect width="10" height="10" fill="#9b59d6"/></pattern>
+        </defs>
+        <rect width="160" height="100" fill="#14102a"/>
+        <rect x="42" y="12" width="36" height="36" fill="url(#tm-g)"/>
+        <rect x="82" y="12" width="36" height="36" fill="url(#tm-o)"/>
+        <rect x="42" y="52" width="36" height="36" fill="url(#tm-b)"/>
+        <rect x="82" y="52" width="36" height="36" fill="url(#tm-p)"/>
+        <rect x="68" y="38" width="24" height="24" fill="#14102a"/>
+        <rect x="72" y="34" width="16" height="22" fill="#ffd93b"/>
+        <rect x="74" y="36" width="12" height="18" fill="#ff2e93"/>
+        <rect x="78" y="42" width="4" height="4" fill="#fff"/>
+      </svg>
           <div class="body">
-            <h3>NEON RACER</h3>
-            <p class="fr">Course arcade synthwave à tombeau ouvert.</p>
-            <p class="en">Full-throttle synthwave arcade racing.</p>
+            <h3>T.A.M.E.R</h3>
+            <p class="fr">Cartes et plateau tactique jusqu'à 4 joueurs : biomes, pions, sorts et bâtiments.</p>
+            <p class="en">Tactical cards and board for up to 4 players: biomes, units, spells and buildings.</p>
             <div class="meta">
-              <span class="tags">Racing · Arcade</span>
+              <span class="tags">Cards · Tactics</span>
               <span class="badge wip"><span class="fr">En cours</span><span class="en">In dev</span></span>
-            </div>
-          </div>
-        </a>
-
-        <a class="card panel" href="games/dungeon-respawn.html">
-          <svg class="cover" viewBox="0 0 160 100" shape-rendering="crispEdges" aria-hidden="true">
-            <rect width="160" height="100" fill="#201010"/>
-            <rect x="0" y="0" width="160" height="12" fill="#3a1a1a"/>
-            <rect x="0" y="88" width="160" height="12" fill="#3a1a1a"/>
-            <rect x="68" y="36" width="24" height="28" fill="#e6e6ff"/>
-            <rect x="72" y="42" width="6" height="6" fill="#0a0a14"/>
-            <rect x="82" y="42" width="6" height="6" fill="#0a0a14"/>
-            <rect x="76" y="54" width="8" height="4" fill="#0a0a14"/>
-          </svg>
-          <div class="body">
-            <h3>DUNGEON RESPAWN</h3>
-            <p class="fr">Un roguelike où mourir fait partie du plan.</p>
-            <p class="en">A roguelike where dying is part of the plan.</p>
-            <div class="meta">
-              <span class="tags">Roguelike · RPG</span>
-              <span class="badge soon"><span class="fr">Bientôt</span><span class="en">Soon</span></span>
             </div>
           </div>
         </a>

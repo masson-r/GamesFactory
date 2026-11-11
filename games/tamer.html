@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr" data-lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>T.A.M.E.R — GamesFactory</title>
+  <meta name="description" content="T.A.M.E.R : jeu de cartes et de plateau tactique, jusqu'à 4 joueurs / a tactical card and board game for up to 4 players.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/lang.js"></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="../index.html">GAMES<span>FACTORY</span></a>
+    <div class="nav-right">
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#games"><span class="fr">Jeux</span><span class="en">Games</span></a></li>
+        <li><a href="../index.html#about"><span class="fr">À propos</span><span class="en">About</span></a></li>
+      </ul>
+      <div class="langs">
+        <button type="button" data-set-lang="fr">FR</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <a class="back" href="../index.html#games"><span class="fr">◀ RETOUR AUX JEUX</span><span class="en">◀ BACK TO GAMES</span></a>
+
+  <!-- ===== EN-TÊTE DU JEU / GAME HEADER ===== -->
+  <div class="game-head">
+    <div class="panel">
+      <svg class="cover-big" viewBox="0 0 160 100" shape-rendering="crispEdges" role="img" aria-label="T.A.M.E.R">
+        <defs>
+          <pattern id="tm-g" width="12" height="12" patternUnits="userSpaceOnUse" x="42" y="12"><rect width="10" height="10" fill="#2f8f4e"/></pattern>
+          <pattern id="tm-o" width="12" height="12" patternUnits="userSpaceOnUse" x="82" y="12"><rect width="10" height="10" fill="#d9822b"/></pattern>
+          <pattern id="tm-b" width="12" height="12" patternUnits="userSpaceOnUse" x="42" y="52"><rect width="10" height="10" fill="#3a7bd5"/></pattern>
+          <pattern id="tm-p" width="12" height="12" patternUnits="userSpaceOnUse" x="82" y="52"><rect width="10" height="10" fill="#9b59d6"/></pattern>
+        </defs>
+        <rect width="160" height="100" fill="#14102a"/>
+        <rect x="42" y="12" width="36" height="36" fill="url(#tm-g)"/>
+        <rect x="82" y="12" width="36" height="36" fill="url(#tm-o)"/>
+        <rect x="42" y="52" width="36" height="36" fill="url(#tm-b)"/>
+        <rect x="82" y="52" width="36" height="36" fill="url(#tm-p)"/>
+        <rect x="68" y="38" width="24" height="24" fill="#14102a"/>
+        <rect x="72" y="34" width="16" height="22" fill="#ffd93b"/>
+        <rect x="74" y="36" width="12" height="18" fill="#ff2e93"/>
+        <rect x="78" y="42" width="4" height="4" fill="#fff"/>
+      </svg>
+    </div>
+
+    <div>
+      <h1>T.A.M.E.R</h1>
+      <span class="badge wip"><span class="fr">En cours</span><span class="en">In dev</span></span>
+      <p class="lead fr">Un jeu de cartes et de plateau tactique au tour par tour, jusqu'à 4 joueurs. Compose ton territoire, recrute tes pions, construis, lance des sorts et détruis la base adverse.</p>
+      <p class="lead en">A turn-based tactical card and board game for up to 4 players. Build your territory, recruit your units, construct, cast spells and destroy the enemy base.</p>
+
+      <ul class="facts">
+        <li><span>Genre</span><span><span class="fr">Cartes · Stratégie tactique</span><span class="en">Cards · Tactical strategy</span></span></li>
+        <li><span><span class="fr">Plateforme</span><span class="en">Platform</span></span><span><span class="fr">Navigateur (PC)</span><span class="en">Browser (PC)</span></span></li>
+        <li><span><span class="fr">Joueurs</span><span class="en">Players</span></span><span><span class="fr">Jusqu'à 4</span><span class="en">Up to 4</span></span></li>
+        <li><span>Version</span><span>Prototype</span></li>
+        <li><span><span class="fr">Langues</span><span class="en">Languages</span></span><span>FR · EN</span></li>
+      </ul>
+
+      <a class="btn" href="../play/tamer/tamer_ui.html"><span class="fr">▶ JOUER</span><span class="en">▶ PLAY</span></a>
+    </div>
+  </div>
+
+  <section>
+    <!-- ===== DESCRIPTION ===== -->
+    <div class="block panel">
+      <h2><span class="fr">À PROPOS DU JEU</span><span class="en">ABOUT THE GAME</span></h2>
+      <p class="fr">Dans T.A.M.E.R, chaque carte occupe une case du plateau. Le plateau n'existe pas d'avance : les joueurs le construisent en posant leurs biomes (des blocs de 3×3 cases), tous reliés entre eux, chacun avec sa base dans un coin.</p>
+      <p class="en">In T.A.M.E.R, every card takes up one square of the board. The board doesn't exist in advance: players build it by laying down their biomes (3×3 blocks of squares), all connected, each with its base in a corner.</p>
+      <p class="fr">À ton tour, tu gagnes une pièce puis tu fais une action : déplacer un pion, jouer une carte, activer un pouvoir, construire, acheter un « blink » ou détruire une base ennemie. Les pions ont une puissance de 1 à 15 et des mots-clés (Agile, Tireur, Vole, Bélier, Meute…) qui changent la façon de se déplacer et de combattre.</p>
+      <p class="en">On your turn you earn a coin, then take one action: move a unit, play a card, activate a power, build, buy a “blink” or destroy an enemy base. Units have a strength from 1 to 15 and keywords (Agile, Shooter, Flying, Ram, Pack…) that change how they move and fight.</p>
+      <p class="fr">Au programme : sorts et événements à usage unique, bâtiments avec leurs salles secrètes, items à équiper, objets qui plongent le plateau dans le noir… Plus de dix familles de cartes aux univers très différents (gobelins, ninjas, steampunk, magie, film d'horreur…).</p>
+      <p class="en">Expect one-shot spells and events, buildings with hidden rooms, equippable items, effects that plunge the board into darkness… More than ten card families with very different universes (goblins, ninjas, steampunk, magic, horror movies…).</p>
+    </div>
+
+    <!-- ===== ÉTAT / STATUS ===== -->
+    <div class="block panel">
+      <h2><span class="fr">ÉTAT DU PROJET</span><span class="en">PROJECT STATUS</span></h2>
+      <p class="fr">T.A.M.E.R est un prototype jouable en cours de développement : toutes les règles et tous les pouvoirs des cartes ne sont pas encore implémentés. Les bugs sont attendus !</p>
+      <p class="en">T.A.M.E.R is a playable prototype still in development: not every rule and card power is implemented yet. Expect bugs!</p>
+    </div>
+
+    <!-- ===== COMMANDES / CONTROLS ===== -->
+    <div class="block panel">
+      <h2><span class="fr">COMMANDES</span><span class="en">CONTROLS</span></h2>
+      <ul>
+        <li class="fr">Glisse-dépose les cartes sur le plateau.</li>
+        <li class="en">Drag and drop cards onto the board.</li>
+        <li class="fr"><kbd>?</kbd> ouvre l'aide dans le jeu (règles et mots-clés).</li>
+        <li class="en"><kbd>?</kbd> opens the in-game help (rules and keywords).</li>
+      </ul>
+    </div>
+
+    <!-- ===== CHANGELOG ===== -->
+    <div class="block panel">
+      <h2>CHANGELOG</h2>
+      <ul>
+        <li><strong>Prototype</strong> — <span class="fr">Version jouable : plateau en biomes, combats, sorts, bâtiments et salles, effets de noir, mots-clés de pions, interface FR/EN.</span><span class="en">Playable version: biome board, combat, spells, buildings and rooms, darkness effects, unit keywords, FR/EN interface.</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="pixel">GAME OVER ? CONTINUE ? 9… 8… 7…</span>
+    © <span id="year">2026</span> GamesFactory — A real gamer never die, he respawn.
+  </div>
+</footer>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>NOM DU JEU / GAME NAME — GamesFactory</title>
-  <meta name="description" content="NOM DU JEU / GAME NAME : un platformer old school / an old-school platformer.">
+  <meta name="description" content="Hop &amp; Lock : saute, bloque, capture. Jeu de stratégie 8×8 contre un bot / Hop. Lock. Capture. An 8×8 strategy game against a bot.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
@@ -36,35 +36,40 @@
   <!-- ===== EN-TÊTE DU JEU / GAME HEADER ===== -->
   <div class="game-head">
     <div class="panel">
-      <!-- Remplace ce SVG par : <img class="cover-big" src="../assets/nom-du-jeu/cover.png" alt="NOM DU JEU / GAME NAME"> -->
-      <svg class="cover-big" viewBox="0 0 160 100" shape-rendering="crispEdges" role="img" aria-label="NOM DU JEU / GAME NAME">
-        <rect width="160" height="100" fill="#1b1b4a"/>
-        <rect y="70" width="160" height="30" fill="#39ff6a"/>
-        <rect y="78" width="160" height="22" fill="#14732e"/>
-        <rect x="110" y="20" width="16" height="16" fill="#ffd93b"/>
-        <rect x="60" y="54" width="16" height="16" fill="#ff2e93"/>
-        <rect x="64" y="58" width="4" height="4" fill="#fff"/>
-        <rect x="70" y="58" width="4" height="4" fill="#fff"/>
+      <svg class="cover-big" viewBox="0 0 160 100" shape-rendering="crispEdges" role="img" aria-label="Hop &amp; Lock">
+        <defs>
+          <pattern id="hl-b" width="20" height="20" patternUnits="userSpaceOnUse" x="40" y="10">
+            <rect width="10" height="10" fill="#f2e8cf"/><rect x="10" y="10" width="10" height="10" fill="#f2e8cf"/>
+            <rect x="10" width="10" height="10" fill="#d9c9a0"/><rect y="10" width="10" height="10" fill="#d9c9a0"/>
+          </pattern>
+        </defs>
+        <rect width="160" height="100" fill="#1b1b2f"/>
+        <rect x="40" y="10" width="80" height="80" fill="url(#hl-b)"/>
+        <rect x="40" y="70" width="10" height="10" fill="#19f0ff"/><rect x="50" y="80" width="10" height="10" fill="#19f0ff"/>
+        <rect x="60" y="70" width="10" height="10" fill="#19f0ff"/><rect x="50" y="60" width="10" height="10" fill="#19f0ff"/>
+        <rect x="90" y="20" width="10" height="10" fill="#ff2e93"/><rect x="100" y="10" width="10" height="10" fill="#ff2e93"/>
+        <rect x="110" y="20" width="10" height="10" fill="#ff2e93"/><rect x="100" y="30" width="10" height="10" fill="#ff2e93"/>
+        <rect x="70" y="40" width="10" height="10" fill="#8a8ab8"/><rect x="80" y="50" width="10" height="10" fill="#8a8ab8"/>
+        <rect x="52" y="52" width="6" height="6" fill="#0a0a14"/><rect x="92" y="62" width="6" height="6" fill="#ffd93b"/>
+        <rect x="102" y="42" width="6" height="6" fill="#0a0a14"/>
       </svg>
     </div>
 
     <div>
       <h1>NOM DU JEU / GAME NAME</h1>
       <span class="badge released"><span class="fr">Dispo</span><span class="en">Out now</span></span>
-      <p class="lead fr">Un platformer old school où chaque mort te rend plus fort. Traverse 30 niveaux, ramasse les pièces et bats le boss final.</p>
-      <p class="lead en">An old-school platformer where every death makes you stronger. Cross 30 levels, collect coins and beat the final boss.</p>
+      <p class="lead fr">Saute, bloque, capture. Un jeu de stratégie au tour par tour sur un plateau 8×8 : affronte un bot en bloquant des cases et en capturant les siennes par des sauts. 25 niveaux, de plus en plus vicieux.</p>
+      <p class="lead en">Hop. Lock. Capture. A turn-based strategy game on an 8×8 board: face a bot by blocking squares and capturing its own with jumps. 25 levels, each one trickier than the last.</p>
 
       <ul class="facts">
-        <li><span><span class="fr">Genre</span><span class="en">Genre</span></span><span>Platformer 2D</span></li>
-        <li><span><span class="fr">Plateforme</span><span class="en">Platform</span></span><span><span class="fr">Navigateur, Windows</span><span class="en">Browser, Windows</span></span></li>
-        <li><span><span class="fr">Sortie</span><span class="en">Release</span></span><span>2026</span></li>
-        <li><span>Version</span><span>1.0.0</span></li>
-        <li><span><span class="fr">Durée</span><span class="en">Length</span></span><span>~ 2 h</span></li>
+        <li><span>Genre</span><span><span class="fr">Stratégie au tour par tour</span><span class="en">Turn-based strategy</span></span></li>
+        <li><span><span class="fr">Plateforme</span><span class="en">Platform</span></span><span><span class="fr">Navigateur (PC, mobile)</span><span class="en">Browser (PC, mobile)</span></span></li>
+        <li><span><span class="fr">Mode</span><span class="en">Mode</span></span><span><span class="fr">Solo contre un bot</span><span class="en">Solo vs bot</span></span></li>
+        <li><span>Version</span><span>0.1.0</span></li>
+        <li><span><span class="fr">Niveaux</span><span class="en">Levels</span></span><span>25</span></li>
       </ul>
 
-      <!-- Mets ici tes vrais liens. Bouton désactivé : class="btn disabled" -->
-      <a class="btn" href="#"><span class="fr">▶ JOUER</span><span class="en">▶ PLAY</span></a>
-      <a class="btn alt" href="#"><span class="fr">TÉLÉCHARGER</span><span class="en">DOWNLOAD</span></a>
+      <a class="btn" href="../play/nom-du-jeu/index.html"><span class="fr">▶ JOUER</span><span class="en">▶ PLAY</span></a>
     </div>
   </div>
 
@@ -72,36 +77,34 @@
     <!-- ===== DESCRIPTION ===== -->
     <div class="block panel">
       <h2><span class="fr">À PROPOS DU JEU</span><span class="en">ABOUT THE GAME</span></h2>
-      <p class="fr">Décris ton jeu ici : l'histoire, le concept, ce qui le rend unique.</p>
-      <p class="en">Describe your game here: story, concept, what makes it unique.</p>
+      <p class="fr">Chaque niveau est une partie complète sur un plateau de 8×8 cases. Le joueur humain et le bot jouent à tour de rôle : on se déplace, on bloque des cases, et on capture celles de l'adversaire en sautant par-dessus. Les scores se cumulent d'un niveau à l'autre, et le plus gros total après 25 niveaux remporte la partie.</p>
+      <p class="en">Each level is a full game on an 8×8 board. You and the bot take turns moving, blocking squares and capturing your opponent's by jumping. Scores carry over from level to level, and the highest total after 25 levels wins the game.</p>
+      <p class="fr">De nouveaux éléments arrivent au fil des niveaux : cases grises neutres à capturer, cases à 2 ou 4 points, et trous que l'on ne franchit que par un saut.</p>
+      <p class="en">New elements show up as you progress: neutral grey squares to capture, 2- and 4-point squares, and holes that can only be crossed with a jump.</p>
     </div>
 
-    <!-- ===== COMMANDES / CONTROLS ===== -->
+    <!-- ===== RÈGLES / RULES ===== -->
     <div class="block panel">
-      <h2><span class="fr">COMMANDES</span><span class="en">CONTROLS</span></h2>
+      <h2><span class="fr">COMMENT JOUER</span><span class="en">HOW TO PLAY</span></h2>
       <ul>
-        <li><kbd>←</kbd> <kbd>→</kbd> <span class="fr">se déplacer</span><span class="en">move</span></li>
-        <li><kbd>SPACE</kbd> <span class="fr">sauter</span><span class="en">jump</span></li>
-        <li><kbd>R</kbd> respawn</li>
+        <li class="fr"><strong>Pas</strong> : tu avances d'une case. Ta case de départ devient bloquée et te rapporte ses points.</li>
+        <li class="en"><strong>Step</strong>: move one square. The square you leave becomes blocked and scores its points.</li>
+        <li class="fr"><strong>Saut</strong> : tu avances de deux cases et captures les cases bloquées du bot et les cases grises autour de ton arrivée.</li>
+        <li class="en"><strong>Jump</strong>: move two squares and capture the bot's blocked squares and the grey squares around where you land.</li>
+        <li class="fr">Touche une case marquée pour jouer le coup. Il n'y a pas d'annulation.</li>
+        <li class="en">Tap a marked square to play the move. There is no undo.</li>
+        <li class="fr">Le niveau s'arrête quand un joueur est bloqué, qu'une position se répète trois fois, au 50<sup>e</sup> tour, ou quand tu le demandes.</li>
+        <li class="en">A level ends when a player is stuck, a position repeats three times, on turn 50, or when you ask to end it.</li>
+        <li class="fr">Le vainqueur du niveau gagne +5 points.</li>
+        <li class="en">The level winner gets a +5 bonus.</li>
       </ul>
-    </div>
-
-    <!-- ===== CAPTURES / SCREENSHOTS ===== -->
-    <div class="block panel">
-      <h2><span class="fr">CAPTURES</span><span class="en">SCREENSHOTS</span></h2>
-      <div class="shots">
-        <!-- Remplace par : <img src="../assets/nom-du-jeu/shot1.png" alt="Capture 1"> -->
-        <svg viewBox="0 0 160 100" shape-rendering="crispEdges"><rect width="160" height="100" fill="#1b1b4a"/><rect y="70" width="160" height="30" fill="#39ff6a"/></svg>
-        <svg viewBox="0 0 160 100" shape-rendering="crispEdges"><rect width="160" height="100" fill="#2a0b5c"/><rect y="70" width="160" height="30" fill="#19f0ff"/></svg>
-        <svg viewBox="0 0 160 100" shape-rendering="crispEdges"><rect width="160" height="100" fill="#201010"/><rect y="70" width="160" height="30" fill="#ff2e93"/></svg>
-      </div>
     </div>
 
     <!-- ===== CHANGELOG ===== -->
     <div class="block panel">
       <h2>CHANGELOG</h2>
       <ul>
-        <li><strong>1.0.0</strong> — <span class="fr">Sortie initiale.</span><span class="en">Initial release.</span></li>
+        <li><strong>0.1.0</strong> — <span class="fr">Première version jouable : 25 niveaux, bot, sauvegarde de la progression, FR/EN, son.</span><span class="en">First playable version: 25 levels, bot, saved progress, FR/EN, sound.</span></li>
       </ul>
     </div>
   </section>
@@ -115,4 +118,3 @@
 </footer>
 </body>
 </html>
-
