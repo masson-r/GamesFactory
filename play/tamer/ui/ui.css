@@ -61,7 +61,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-bottom: 28px; }
 .accueil[hidden] { display: none; }
 .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; padding-block: clamp(24px, 5vw, 64px); }
-.hero h1 { font-family: var(--display); font-weight: 800; font-size: clamp(54px, 11vw, 132px); line-height: .9; letter-spacing: -.01em; }
+.hero h1 { font-family: var(--display); font-weight: 800; font-size: clamp(40px, 8vw, 100px); line-height: .9; letter-spacing: -.01em; }
 .hero h1 span { display: block; }
 .hero .pitch { font-size: clamp(17px, 2.2vw, 21px); max-width: 34ch; color: var(--ink-2); margin: 20px 0 28px; }
 .hero .cta { display: flex; gap: 12px; flex-wrap: wrap; }
